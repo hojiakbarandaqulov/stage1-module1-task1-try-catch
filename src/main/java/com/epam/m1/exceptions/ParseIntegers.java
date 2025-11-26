@@ -18,22 +18,24 @@ public class ParseIntegers {
     public static void main(String[] args) {
         Iterator<String> words = WORDS.iterator();
         int sum = 0;
-        StringBuilder justWords = new StringBuilder();
+        String justWords = "";
+
         while (words.hasNext()) {
             String next = words.next();
-            // todo: complete it
-            String cleaned=next.replaceAll("[^0-9]", "");
+            String cleaned = next.replaceAll("[^0-9]", "");
             if (cleaned.matches("\\d+")) {
                 sum += Integer.parseInt(cleaned);
-            }else {
-                if (justWords.length()>0){
-                    justWords.append(" ");
+            } else {
+                if (!justWords.isEmpty()) {
+                    justWords += " ";
                 }
-                justWords.append(next);
+                justWords += next;
             }
         }
+
         System.out.println("Sum is " + sum);
-        System.out.println("Just words:" + justWords);
+        System.out.println("Just words: " + justWords);
     }
+
 }
 
