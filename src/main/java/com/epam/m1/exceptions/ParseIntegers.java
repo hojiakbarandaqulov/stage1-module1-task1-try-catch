@@ -22,8 +22,10 @@ public class ParseIntegers {
 
         while (words.hasNext()) {
             String next = words.next();
-            String cleaned = next.replaceAll("[^0-9]", "");
-            if (cleaned.matches("\\d+")) {
+
+            String cleaned = next.replaceAll("\\D", ""); // faqat raqamlar
+
+            if (!cleaned.isEmpty()) {
                 sum += Integer.parseInt(cleaned);
             } else {
                 if (!justWords.isEmpty()) {
@@ -36,6 +38,5 @@ public class ParseIntegers {
         System.out.println("Sum is " + sum);
         System.out.println("Just words: " + justWords);
     }
-
 }
 
